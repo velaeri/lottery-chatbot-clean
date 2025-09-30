@@ -6,7 +6,7 @@ Sistema completo de chatbot para tienda de lotería con **dual backend** (Node.j
 
 - **🔧 Backend Node.js**: https://y0h0i3c86qv6.manus.space
 - **🔧 Backend N8N**: https://77h9ikc6nzl1.manus.space
-- **🌐 Frontend**: *Listo para despliegue*
+- **🌐 Frontend**: *Preparado para publicación* (usar botón "Publish" en la interfaz)
 
 ## ✨ **Características Principales**
 
@@ -90,10 +90,12 @@ python tests/test_system.py
 ## 🧪 **Testing y CI/CD**
 
 ### **GitHub Actions**
-- **✅ Tests automáticos** en cada push/PR
-- **✅ Validación de backends** activos
-- **✅ Build del frontend** verificado
-- **✅ Tests de integración** completos
+- **✅ CI/CD automático** en push a main/develop
+- **✅ Tests de backends** con validación completa
+- **✅ Build del frontend** automatizado
+- **✅ Tests de integración** end-to-end
+- **✅ Tests de rendimiento** programados diariamente
+- **✅ Reportes automáticos** de despliegue
 
 ### **Suite de Tests**
 - **Health checks** de ambos backends

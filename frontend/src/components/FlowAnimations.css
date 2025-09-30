@@ -1,0 +1,227 @@
+/* Animaciones para el flujo de trazas */
+
+@keyframes flowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes connectionFlow {
+  0% {
+    stroke-dashoffset: 20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes nodeGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes dataFlow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes successPulse {
+  0%, 100% {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    background-color: rgba(16, 185, 129, 0.2);
+    border-color: rgba(16, 185, 129, 0.5);
+  }
+}
+
+@keyframes errorPulse {
+  0%, 100% {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+  50% {
+    background-color: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.5);
+  }
+}
+
+@keyframes processingPulse {
+  0%, 100% {
+    background-color: rgba(147, 51, 234, 0.1);
+    border-color: rgba(147, 51, 234, 0.3);
+  }
+  50% {
+    background-color: rgba(147, 51, 234, 0.2);
+    border-color: rgba(147, 51, 234, 0.5);
+  }
+}
+
+/* Clases de utilidad */
+.flow-pulse {
+  animation: flowPulse 2s ease-in-out infinite;
+}
+
+.connection-flow {
+  stroke-dasharray: 10, 5;
+  animation: connectionFlow 2s linear infinite;
+}
+
+.node-glow {
+  animation: nodeGlow 3s ease-in-out infinite;
+}
+
+.data-flow {
+  animation: dataFlow 3s ease-in-out infinite;
+}
+
+.success-pulse {
+  animation: successPulse 2s ease-in-out infinite;
+}
+
+.error-pulse {
+  animation: errorPulse 1.5s ease-in-out infinite;
+}
+
+.processing-pulse {
+  animation: processingPulse 2.5s ease-in-out infinite;
+}
+
+/* Transiciones suaves */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Efectos de conexión */
+.connection-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.connection-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
+  animation: dataFlow 2s ease-in-out infinite;
+}
+
+/* Indicadores de estado */
+.status-indicator {
+  position: relative;
+}
+
+.status-indicator::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: flowPulse 1.5s ease-in-out infinite;
+}
+
+.status-indicator.success::after {
+  background-color: #10b981;
+}
+
+.status-indicator.error::after {
+  background-color: #ef4444;
+}
+
+.status-indicator.processing::after {
+  background-color: #8b5cf6;
+}
+
+/* Efectos de hover mejorados */
+.interactive-node {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.interactive-node:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.interactive-node:active {
+  transform: scale(0.98);
+}
+
+/* Gradientes animados */
+.animated-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Efectos de carga */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flow-pulse {
+    animation-duration: 1.5s;
+  }
+  
+  .node-glow {
+    animation-duration: 2s;
+  }
+  
+  .connection-flow {
+    animation-duration: 1.5s;
+  }
+}

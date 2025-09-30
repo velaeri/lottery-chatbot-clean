@@ -1,0 +1,173 @@
+/* Estilos para la visualización mejorada de trazas */
+
+.trace-modal {
+  backdrop-filter: blur(4px);
+}
+
+.trace-step-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.trace-step-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.trace-expanded {
+  animation: expandIn 0.3s ease-out;
+}
+
+@keyframes expandIn {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+.trace-code-block {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.trace-timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #10b981);
+}
+
+.trace-timeline-item {
+  position: relative;
+  padding-left: 50px;
+}
+
+.trace-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 20px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #3b82f6;
+  z-index: 1;
+}
+
+.trace-timeline-item.database::before {
+  border-color: #3b82f6;
+}
+
+.trace-timeline-item.ai::before {
+  border-color: #8b5cf6;
+}
+
+.trace-timeline-item.success::before {
+  border-color: #10b981;
+}
+
+.trace-timeline-item.error::before {
+  border-color: #ef4444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .trace-modal {
+    margin: 0;
+    border-radius: 0;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  
+  .trace-timeline {
+    padding-left: 0;
+  }
+  
+  .trace-timeline::before {
+    display: none;
+  }
+  
+  .trace-timeline-item {
+    padding-left: 0;
+  }
+  
+  .trace-timeline-item::before {
+    display: none;
+  }
+  
+  .trace-code-block {
+    font-size: 10px;
+  }
+}
+
+/* Smooth scrolling */
+.trace-content {
+  scroll-behavior: smooth;
+}
+
+/* Loading states */
+.trace-loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+/* Button hover effects */
+.trace-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.trace-button:hover {
+  transform: scale(1.05);
+}
+
+.trace-button:active {
+  transform: scale(0.95);
+}
+
+/* Gradient backgrounds */
+.trace-gradient-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.trace-gradient-success {
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.trace-gradient-error {
+  background: linear-gradient(135deg, #fc466b 0%, #3f5efb 100%);
+}
+
+/* Custom scrollbar */
+.trace-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.trace-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.trace-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.trace-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
